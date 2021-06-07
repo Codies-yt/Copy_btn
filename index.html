@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coyp-btn</title>
+  </head>
+  <body>
+    <!-- Your html -->
+    <p id="text">hello wrold</p>
+    <button type="button" id="Copy">Copy</button>
+    <!-- end of html -->
+  </body>
+  <!-- script -->
+  <script>
+    // import html element
+    const btn = document.getElementById("Copy");
+
+    // copy function begin
+    btn.addEventListener("click", () => {
+      const text = document.getElementById("text").innerHTML;
+      // making of an invisible input Element
+      const emt = document.createElement("input");
+      emt.setAttribute("value", text);
+      document.body.appendChild(emt);
+      // selecting the value inside the input Element
+      emt.select();
+      // copying the value
+      document.execCommand("copy");
+      // removing the child
+      emt.parentNode.removeChild(emt);
+    //   showing message to the user that the text has been copied
+      alert(`You have copied the ${text}`)
+    });
+    
+  </script>
+  <!-- script over -->
+</html>
